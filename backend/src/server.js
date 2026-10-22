@@ -9,8 +9,8 @@ async function bootstrap() {
   // Connect to DB (with automatic in-memory fallback)
   await connectDB();
 
-  const server = app.listen(config.port, () => {
-    logger.info(`ResumeIQ Server is running at http://localhost:${config.port}`);
+  const server = app.listen(config.port, '0.0.0.0', () => {
+    logger.info(`ResumeIQ Server is running on port ${config.port}`);
     logger.info(`Health check endpoint: http://localhost:${config.port}/api/health`);
   });
 
